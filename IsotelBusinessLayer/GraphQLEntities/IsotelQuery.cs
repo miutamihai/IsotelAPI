@@ -19,7 +19,7 @@ namespace IsotelBusinessLayer.GraphQLEntities
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
                 resolve: context => QueryResolver.GetRent(context.GetArgument<int>("id"))
                 );
-            Field<CityType>("landlord",
+            Field<LandlordType>("landlord",
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
                 resolve: context => QueryResolver.GetLandlord(context.GetArgument<int>("id"))
                 );
