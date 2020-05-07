@@ -15,7 +15,7 @@ namespace IsotelBusinessLayer.GraphQLEntities.Mutations
         public RentMutation()
         {
             Name = "CreateRentMutation";
-            Field<RentType>(
+            Field<MutationResultType>(
                 "createRent",
                 arguments: new QueryArguments(
                     new QueryArgument<NonNullGraphType<RentInputType>> { Name = "rent" }
@@ -23,7 +23,23 @@ namespace IsotelBusinessLayer.GraphQLEntities.Mutations
                 resolve: context =>
                 {
                     var rent = context.GetArgument<Rent>("rent");
-                    return QueryResolver.AddRent(rent);
+                    try
+                    {
+                        QueryResolver.AddRent(rent);
+                        return new MutationStatusType
+                        {
+                            Success = true,
+                            Operation = "Added rent with address " + context.GetArgument<Rent>("rent").Address
+                        };
+                    }
+                    catch
+                    {
+                        return new MutationStatusType
+                        {
+                            Success = false,
+                            Operation = ""
+                        };
+                    }
                 });
         }
     }

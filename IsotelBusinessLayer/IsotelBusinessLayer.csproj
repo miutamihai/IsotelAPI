@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GraphQLEntities\Mutations\DeleteLandlord.cs" />
+    <Compile Include="GraphQLEntities\Mutations\DeleteRent.cs" />
     <Compile Include="GraphQLEntities\Types\CityType.cs" />
     <Compile Include="GraphQLEntities\Queries\IsotelQuery.cs" />
     <Compile Include="GraphQLEntities\InputTypes\LandlordInputType.cs" />
@@ -66,6 +68,8 @@
     <Compile Include="GraphQLEntities\QuerySchema.cs" />
     <Compile Include="GraphQLEntities\InputTypes\RentInputType.cs" />
     <Compile Include="GraphQLEntities\Mutations\RentMutation.cs" />
+    <Compile Include="GraphQLEntities\Types\MutationResultType.cs" />
+    <Compile Include="GraphQLEntities\Types\MutationStatusType.cs" />
     <Compile Include="GraphQLEntities\Types\RentType.cs" />
     <Compile Include="QueryResolver.cs" />
     <Compile Include="GraphQLEntities\Queries\GraphQLQuery.cs" />

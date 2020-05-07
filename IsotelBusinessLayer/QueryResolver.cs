@@ -3,6 +3,7 @@ using IsotelDataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +54,14 @@ namespace IsotelBusinessLayer
         public static List<City> GetCities()
         {
             return manager.GetCities();
+        }
+        internal static void DeleteRent(int rentId)
+        {
+            manager.DeleteRent(rentId);
+        }
+        internal static void DeleteLandlord(int landlordId)
+        {
+            manager.DeleteLandlord(landlordId);
         }
     }
 }

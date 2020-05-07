@@ -13,10 +13,10 @@ namespace IsotelBusinessLayer.GraphQLEntities.Types
     {
         public CityType()
         {
-            Field(x => x.Id).Description("City Identifier");
+            Field(x => x.CityId).Description("City Identifier");
             Field(x => x.Name).Description("Name of the city");
             Field(x => x.PhoneNumber).Description("Phone number for the city's local police department");
-            Field<ListGraphType<RentType>>("Rents", resolve: context => QueryResolver.GetRentsForCity(context.Source.Id), description: "List all rents");
+            Field<ListGraphType<RentType>>("Rents", resolve: context => QueryResolver.GetRentsForCity(context.Source.CityId), description: "List all rents");
         }
     }
 }

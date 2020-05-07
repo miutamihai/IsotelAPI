@@ -11,13 +11,13 @@ namespace IsotelDataLayer.Models
     public class Rent
     {
         [Key]
-        public int Id { get; set; }
+        public int RentId { get; set; }
         public string Address { get; set; }
         public int CityId { get; set; }
-        [ForeignKey("Id")]
+        [ForeignKey("CityId")]
         public virtual City City { get; set; }
-        public int OwnerId { get; set; }
-        [ForeignKey("Id")]
+        public int LandlordId { get; set; }
+        [ForeignKey("LandlordId")]
         public virtual Landlord Landlord { get; set; }
         public int PricePerDay { get; set; }
         public bool IsAvailable { get; set; }

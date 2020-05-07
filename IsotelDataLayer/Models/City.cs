@@ -10,7 +10,7 @@ namespace IsotelDataLayer.Models
     public class City
     {
         [Key]
-        public int Id { get; set; }
+        public int CityId { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
     }

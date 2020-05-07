@@ -1,34 +1,32 @@
 ﻿using GraphQL.Types;
-using IsotelDataLayer.Models;
+using IsotelBusinessLayer.GraphQLEntities.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IsotelBusinessLayer.GraphQLEntities.Types;
-using IsotelBusinessLayer.GraphQLEntities.InputTypes;
 
 namespace IsotelBusinessLayer.GraphQLEntities.Mutations
 {
-    public class LandlordMutation : ObjectGraphType<object>
+    public class DeleteRent : ObjectGraphType<object>
     {
-        public LandlordMutation()
+        public DeleteRent()
         {
-            Name = "CreateLandlordMutation";
+            Name = "DeleteRentMutation";
             Field<MutationResultType>(
-                "createLandlord",
+                "deleteRent",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<LandlordInputType>> { Name = "landlord"}
-                ),
-                resolve: context => {
-                    var landlord = context.GetArgument<Landlord>("landlord");
+                    new QueryArgument<IntGraphType> { Name = "id" }),
+                resolve: context =>
+                {
+                    int rentId = context.GetArgument<int>("id");
                     try
                     {
-                        QueryResolver.AddLandlord(landlord);
+                        QueryResolver.DeleteRent(rentId);
                         return new MutationStatusType
                         {
                             Success = true,
-                            Operation = "Added landlord " + context.GetArgument<Landlord>("landlord").FirstName + " " + context.GetArgument<Landlord>("landlord").LastName
+                            Operation = "Deleted rent with id " + rentId
                         };
                     }
                     catch
@@ -39,7 +37,8 @@ namespace IsotelBusinessLayer.GraphQLEntities.Mutations
                             Operation = ""
                         };
                     }
-                });
+                }
+                );
         }
     }
 }

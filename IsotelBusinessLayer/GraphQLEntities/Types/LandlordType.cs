@@ -12,12 +12,12 @@ namespace IsotelBusinessLayer.GraphQLEntities.Types
     {
         public LandlordType()
         {
-            Field(x => x.Id).Description("Landlord Identifier");
+            Field(x => x.LandlordId).Description("Landlord Identifier");
             Field(x => x.FirstName).Description("Landlord First Name");
             Field(x => x.LastName).Description("Landlord Last Name");
             Field(x => x.Email).Description("Landlord Email");
             Field(x => x.PhoneNumber).Description("Landlord Phone Number");
-            Field<ListGraphType<RentType>>("OwnedRents", resolve: context => QueryResolver.GetRentsForLandlord(context.Source.Id), description: "List all rents owned by landlord");
+            Field<ListGraphType<RentType>>("OwnedRents", resolve: context => QueryResolver.GetRentsForLandlord(context.Source.LandlordId), description: "List all rents owned by landlord");
         }
     }
 }

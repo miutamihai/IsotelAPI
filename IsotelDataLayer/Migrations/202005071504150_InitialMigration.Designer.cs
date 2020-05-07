@@ -13,7 +13,7 @@ namespace IsotelDataLayer.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202004300806082_InitialMigration"; }
+            get { return "202005071504150_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -21,14 +21,13 @@ namespace IsotelAPI.Controllers
        
         public OkResult Options()
         {
-
             return Ok();
         }
         [System.Web.Mvc.HttpPost]
         public async Task<IHttpActionResult> Post([FromBody] GraphQLQuery query)
         {
             
-            var schema = new Schema { Query = new IsotelQuery(), Mutation=new RentMutation()};
+            var schema = new Schema { Query = new IsotelQuery(), Mutation=new DeleteLandlord()};
             Console.WriteLine(query.Query);
             var inputs = query.Variables.ToInputs();
             Console.WriteLine(inputs.Values);

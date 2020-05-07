@@ -14,7 +14,7 @@ namespace IsotelBusinessLayer.GraphQLEntities.InputTypes
             Name = "RentInput";
             Field<NonNullGraphType<StringGraphType>>("address");
             Field<NonNullGraphType<IntGraphType>>("cityId");
-            Field<NonNullGraphType<IntGraphType>>("ownerId");
+            Field<NonNullGraphType<IntGraphType>>("landlordId");
             Field<NonNullGraphType<IntGraphType>>("pricePerDay");
         }
     }

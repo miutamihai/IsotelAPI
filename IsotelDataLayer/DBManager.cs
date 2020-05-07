@@ -22,7 +22,7 @@ namespace IsotelDataLayer
 
         public List<Rent> GetRentsForLandlord(int landlordId)
         {
-            var rents = dbContext.Rents.ToList().FindAll(rent => rent.OwnerId == landlordId);
+            var rents = dbContext.Rents.ToList().FindAll(rent => rent.LandlordId == landlordId);
             return rents;
         }
 
@@ -32,6 +32,8 @@ namespace IsotelDataLayer
         }
         public Rent AddRent(Rent rent)
         {
+            rent.IsAvailable = true;
+            rent.RentId = dbContext.Rents.Count() + 1;
             dbContext.Rents.Add(rent);
             dbContext.SaveChanges();
             return rent;
@@ -39,12 +41,12 @@ namespace IsotelDataLayer
 
         public Rent GetRent(int rentId)
         {
-            return dbContext.Rents.Where(rent => rent.Id == rentId).FirstOrDefault();
+            return dbContext.Rents.Where(rent => rent.RentId == rentId).FirstOrDefault();
         }
 
         public Landlord GetLandlord(int landlordId)
         {
-            return dbContext.Landlords.Where(landlord => landlord.Id == landlordId).FirstOrDefault();
+            return dbContext.Landlords.Where(landlord => landlord.LandlordId == landlordId).FirstOrDefault();
         }
 
         public Landlord AddLandlord(Landlord landlord)
@@ -56,12 +58,24 @@ namespace IsotelDataLayer
 
         public City GetCity(int cityId)
         {
-            return dbContext.Cities.Where(city => city.Id == cityId).FirstOrDefault();
+            return dbContext.Cities.Where(city => city.CityId == cityId).FirstOrDefault();
         }
 
         public List<City> GetCities()
         {
             return dbContext.Cities.ToList();
+        }
+        public void DeleteRent(int rentId)
+        {
+            Rent rentToBeDeleted = dbContext.Rents.Where(rent => rent.RentId == rentId).FirstOrDefault();
+            dbContext.Rents.Remove(rentToBeDeleted);
+            dbContext.SaveChanges();
+        }
+        public void DeleteLandlord(int landlordId)
+        {
+            Landlord landlordToBeDeleted = dbContext.Landlords.Where(landlord => landlord.LandlordId == landlordId).FirstOrDefault();
+            dbContext.Landlords.Remove(landlordToBeDeleted);
+            dbContext.SaveChanges();
         }
     }
 }
