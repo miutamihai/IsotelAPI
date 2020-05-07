@@ -58,17 +58,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GraphQLEntities\CityType.cs" />
-    <Compile Include="GraphQLEntities\IsotelQuery.cs" />
-    <Compile Include="GraphQLEntities\LandlordInputType.cs" />
-    <Compile Include="GraphQLEntities\LandlordMutation.cs" />
-    <Compile Include="GraphQLEntities\LandlordType.cs" />
+    <Compile Include="GraphQLEntities\Types\CityType.cs" />
+    <Compile Include="GraphQLEntities\Queries\IsotelQuery.cs" />
+    <Compile Include="GraphQLEntities\InputTypes\LandlordInputType.cs" />
+    <Compile Include="GraphQLEntities\Mutations\LandlordMutation.cs" />
+    <Compile Include="GraphQLEntities\Types\LandlordType.cs" />
     <Compile Include="GraphQLEntities\QuerySchema.cs" />
-    <Compile Include="GraphQLEntities\RentInputType.cs" />
-    <Compile Include="GraphQLEntities\RentMutation.cs" />
-    <Compile Include="GraphQLEntities\RentType.cs" />
+    <Compile Include="GraphQLEntities\InputTypes\RentInputType.cs" />
+    <Compile Include="GraphQLEntities\Mutations\RentMutation.cs" />
+    <Compile Include="GraphQLEntities\Types\RentType.cs" />
     <Compile Include="QueryResolver.cs" />
-    <Compile Include="GraphQLEntities\GraphQLQuery.cs" />
+    <Compile Include="GraphQLEntities\Queries\GraphQLQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +81,7 @@
       <Name>IsotelDataLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

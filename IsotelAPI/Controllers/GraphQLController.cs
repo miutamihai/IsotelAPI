@@ -3,7 +3,8 @@ using GraphQL.Http;
 using GraphQL.Types;
 using System;
 using System.Collections.Generic;
-using IsotelBusinessLayer.GraphQLEntities;
+using IsotelBusinessLayer.GraphQLEntities.Queries;
+using IsotelBusinessLayer.GraphQLEntities.Mutations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -27,7 +28,7 @@ namespace IsotelAPI.Controllers
         public async Task<IHttpActionResult> Post([FromBody] GraphQLQuery query)
         {
             
-            var schema = new Schema { Query = new IsotelQuery(), Mutation=new  RentMutation()};
+            var schema = new Schema { Query = new IsotelQuery(), Mutation=new RentMutation()};
             Console.WriteLine(query.Query);
             var inputs = query.Variables.ToInputs();
             Console.WriteLine(inputs.Values);

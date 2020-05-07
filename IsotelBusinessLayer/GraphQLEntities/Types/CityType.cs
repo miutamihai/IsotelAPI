@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GraphQL.Types;
 
-namespace IsotelBusinessLayer.GraphQLEntities
+namespace IsotelBusinessLayer.GraphQLEntities.Types
 {
     public class CityType : ObjectGraphType<City>
     {

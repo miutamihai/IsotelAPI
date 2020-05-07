@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IsotelBusinessLayer.GraphQLEntities
+namespace IsotelBusinessLayer.GraphQLEntities.Types
 {
     public class LandlordType : ObjectGraphType<Landlord>
     {

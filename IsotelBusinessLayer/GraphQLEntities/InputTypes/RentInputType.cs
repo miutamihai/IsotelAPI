@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IsotelBusinessLayer.GraphQLEntities
+namespace IsotelBusinessLayer.GraphQLEntities.InputTypes
 {
     public class RentInputType : InputObjectGraphType
     {

@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IsotelBusinessLayer.GraphQLEntities.Types;
+using IsotelBusinessLayer.GraphQLEntities.InputTypes;
 
-namespace IsotelBusinessLayer.GraphQLEntities
+namespace IsotelBusinessLayer.GraphQLEntities.Mutations
 {
     public class RentMutation : ObjectGraphType<object>
     {

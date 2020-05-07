@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace IsotelBusinessLayer.GraphQLEntities
+namespace IsotelBusinessLayer.GraphQLEntities.Queries
 {
     public class GraphQLQuery
     {
