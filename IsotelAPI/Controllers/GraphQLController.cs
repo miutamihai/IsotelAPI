@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Results;
+using System.Collections;
 
 namespace IsotelAPI.Controllers
 {
@@ -26,8 +27,14 @@ namespace IsotelAPI.Controllers
         [System.Web.Mvc.HttpPost]
         public async Task<IHttpActionResult> Post([FromBody] GraphQLQuery query)
         {
-            
-            var schema = new Schema { Query = new IsotelQuery(), Mutation=new DeleteLandlord()};
+            var mutations = new List<ObjectGraphType<object>>
+            {
+                new RentMutation(),
+                new LandlordMutation(),
+                new DeleteLandlord(),
+                new DeleteRent()
+            };
+            var schema = new Schema { Query = new IsotelQuery(), Mutation=new BaseMutation(mutationClasses: mutations)};
             Console.WriteLine(query.Query);
             var inputs = query.Variables.ToInputs();
             Console.WriteLine(inputs.Values);
