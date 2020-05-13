@@ -1,0 +1,12 @@
+.vs
+ActivityTracker/bin/
+ActivityTracker/obj/
+GraphEntities/obj/
+IsotelAPI/IsotelAPI.csproj.user
+IsotelAPI/obj/
+IsotelAPI/bin/
+IsotelBusinessLayer/bin/
+IsotelBusinessLayer/obj/
+IsotelDataLayer/obj/
+IsotelDataLayer/bin/
+packages
