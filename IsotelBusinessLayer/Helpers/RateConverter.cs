@@ -1,14 +1,15 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace IsotelAPI.Helpers
+namespace IsotelBusinessLayer.Helpers
 {
     public class RateConverter
     {
-        public static double Convert(string requestedCurrency, int priceInDollars)
+        public static int Convert(string requestedCurrency, int priceInDollars)
         {
+            if (requestedCurrency == "USD")
+                return priceInDollars;
             string regexPattern = @"(?<=(?:";
             regexPattern += '"';
             regexPattern += requestedCurrency;
@@ -22,7 +23,8 @@ namespace IsotelAPI.Helpers
             {
                 StreamReader reader = new StreamReader(dataStream);
                 string responseFromServer = reader.ReadToEnd();
-                double rate = Convert.ToDouble(regex.Match(responseFromServer).Value);
+                responseFromServer = regex.Match(responseFromServer).Value;
+                int rate = System.Convert.ToInt32(System.Convert.ToDouble(responseFromServer));
                 return rate * priceInDollars;
             }
         }

@@ -17,8 +17,8 @@ namespace IsotelBusinessLayer.GraphQLEntities.Queries
                 resolve: context => QueryResolver.GetCity(context.GetArgument<int>("id"))
                 );
             Field<RentType>("rent",
-                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
-                resolve: context => QueryResolver.GetRent(context.GetArgument<int>("id"))
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }, new QueryArgument<StringGraphType> { Name = "currency" , DefaultValue = "USD" }),
+                resolve: context => QueryResolver.GetRent(context.GetArgument<int>("id"), context.GetArgument<string>("currency"))
                 );
             Field<LandlordType>("landlord",
                 arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
@@ -28,15 +28,16 @@ namespace IsotelBusinessLayer.GraphQLEntities.Queries
                 resolve: context => QueryResolver.GetCities()
                 );
             Field<ListGraphType<RentType>>("rents_for_landlord",
-                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
-                resolve: context => QueryResolver.GetRentsForLandlord(context.GetArgument<int>("id"))
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }, new QueryArgument<StringGraphType> { Name = "currency", DefaultValue = "USD" }),
+                resolve: context => QueryResolver.GetRentsForLandlord(context.GetArgument<int>("id"), context.GetArgument<string>("currency"))
                );
             Field<ListGraphType<RentType>>("available_rents",
-                resolve: context => QueryResolver.GetAvailableRents()
+                arguments: new QueryArguments(new QueryArgument<StringGraphType> { Name = "currency", DefaultValue = "USD" }),
+                resolve: context => QueryResolver.GetAvailableRents(context.GetArgument<string>("currency"))
                 );
             Field<ListGraphType<RentType>>("rents_for_city",
-                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
-                resolve: context => QueryResolver.GetRentsForCity(context.GetArgument<int>("id"))
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }, new QueryArgument<StringGraphType> { Name = "currency", DefaultValue = "USD" }),
+                resolve: context => QueryResolver.GetRentsForCity(context.GetArgument<int>("id"), context.GetArgument<string>("currency"))
                 );
         }
     }

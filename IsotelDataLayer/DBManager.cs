@@ -14,6 +14,7 @@ namespace IsotelDataLayer
         {
             dbContext = new IsotelDbContext();
         }
+
         public List<Rent> GetRentsForCity(int cityId)
         {
             var rents = dbContext.Rents.ToList().FindAll(rent => rent.CityId == cityId);
@@ -28,7 +29,8 @@ namespace IsotelDataLayer
 
         public List<Rent> GetAvailableRents()
         {
-            return dbContext.Rents.ToList().FindAll(rent => rent.IsAvailable == true);
+            var rents =  dbContext.Rents.ToList().FindAll(rent => rent.IsAvailable == true);
+            return rents;
         }
         public Rent AddRent(Rent rent)
         {
@@ -41,7 +43,8 @@ namespace IsotelDataLayer
 
         public Rent GetRent(int rentId)
         {
-            return dbContext.Rents.Where(rent => rent.RentId == rentId).FirstOrDefault();
+            var rent =  dbContext.Rents.Where(x => x.RentId == rentId).FirstOrDefault();
+            return rent;
         }
 
         public Landlord GetLandlord(int landlordId)

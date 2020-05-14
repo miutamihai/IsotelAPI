@@ -1,5 +1,6 @@
 ﻿using IsotelDataLayer;
 using IsotelDataLayer.Models;
+using IsotelBusinessLayer.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +13,37 @@ namespace IsotelBusinessLayer
     public class QueryResolver
     {
         static DBManager manager = new DBManager();
-        public static List<Rent> GetRentsForCity(int cityId)
+        private static void ConvertPriceRates(ref List<Rent> rents, string currency)
         {
-            return manager.GetRentsForCity(cityId);
+            foreach (Rent rent in rents)
+            {
+                rent.PricePerDay = CalculateNewPrice(rent.PricePerDay, currency);
+            }
         }
 
-        public static List<Rent> GetRentsForLandlord(int landlordId)
+        private static int CalculateNewPrice(int oldPrice, string currency)
         {
-            return manager.GetRentsForLandlord(landlordId);
+            return RateConverter.Convert(currency, oldPrice);
+        }
+        public static List<Rent> GetRentsForCity(int cityId, string currency)
+        {
+            var rents =  manager.GetRentsForCity(cityId);
+            ConvertPriceRates(ref rents, currency);
+            return rents;
         }
 
-        public static List<Rent> GetAvailableRents()
+        public static List<Rent> GetRentsForLandlord(int landlordId, string currency)
         {
-            return manager.GetAvailableRents();
+            var rents =  manager.GetRentsForLandlord(landlordId);
+            ConvertPriceRates(ref rents, currency);
+            return rents;
+        }
+
+        public static List<Rent> GetAvailableRents(string currency)
+        {
+            var rents =  manager.GetAvailableRents();
+            ConvertPriceRates(ref rents, currency);
+            return rents;
         }
 
         internal static Rent AddRent(Rent rent)
@@ -32,9 +51,11 @@ namespace IsotelBusinessLayer
             return manager.AddRent(rent);
         }
 
-        public static Rent GetRent(int rentId)
+        public static Rent GetRent(int rentId, string currency)
         {
-            return manager.GetRent(rentId);
+            var rent = manager.GetRent(rentId);
+            rent.PricePerDay = CalculateNewPrice(rent.PricePerDay, currency);
+            return rent;
         }
 
         public static Landlord GetLandlord(int landlordId)

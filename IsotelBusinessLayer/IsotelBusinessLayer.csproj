@@ -72,6 +72,7 @@
     <Compile Include="GraphQLEntities\Types\MutationResultType.cs" />
     <Compile Include="GraphQLEntities\Types\MutationStatusType.cs" />
     <Compile Include="GraphQLEntities\Types\RentType.cs" />
+    <Compile Include="Helpers\RateConverter.cs" />
     <Compile Include="QueryResolver.cs" />
     <Compile Include="GraphQLEntities\Queries\GraphQLQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
