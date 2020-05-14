@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBManager.cs" />
+    <Compile Include="Helpers\EmailSender.cs" />
+    <Compile Include="Helpers\SMSSender.cs" />
     <Compile Include="Migrations\202005141014230_InitialMigration.cs" />
     <Compile Include="Migrations\202005141014230_InitialMigration.Designer.cs">
       <DependentUpon>202005141014230_InitialMigration.cs</DependentUpon>

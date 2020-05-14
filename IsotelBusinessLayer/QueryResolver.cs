@@ -84,5 +84,13 @@ namespace IsotelBusinessLayer
         {
             manager.DeleteLandlord(landlordId);
         }
+        internal static void FreeRent(int rentId)
+        {
+            manager.FreeRent(rentId);
+        }
+        internal static void OccupyRent(int rentId, string username, string userPhoneNumber)
+        {
+            manager.OccupyRent(rentId, username, userPhoneNumber);
+        }
     }
 }

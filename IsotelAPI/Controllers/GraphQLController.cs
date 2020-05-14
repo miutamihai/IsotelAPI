@@ -32,7 +32,9 @@ namespace IsotelAPI.Controllers
                 new RentMutation(),
                 new LandlordMutation(),
                 new DeleteLandlord(),
-                new DeleteRent()
+                new DeleteRent(),
+                new FreeRentMutation(),
+                new OccupyRentMutation()
             };
             var schema = new Schema { Query = new IsotelQuery(), Mutation=new BaseMutation(mutationClasses: mutations)};
             Console.WriteLine(query.Query);

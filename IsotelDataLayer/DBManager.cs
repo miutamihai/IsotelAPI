@@ -1,4 +1,5 @@
 ﻿using IsotelDataLayer.Models;
+using IsotelDataLayer.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,26 @@ namespace IsotelDataLayer
         public City GetCity(int cityId)
         {
             return dbContext.Cities.Where(city => city.CityId == cityId).FirstOrDefault();
+        }
+
+        public void FreeRent(int rentId)
+        {
+            Rent rentToBeFreed = dbContext.Rents.FirstOrDefault(rent => rent.RentId == rentId);
+            rentToBeFreed.IsAvailable = true;
+            dbContext.SaveChanges();
+        }
+
+        public void OccupyRent(int rentId, string username, string userPhoneNumber)
+        {
+            Rent rentToBeOccupied = dbContext.Rents.FirstOrDefault(rent => rent.RentId == rentId);
+            if(rentToBeOccupied.IsAvailable == false)
+            {
+                throw new ArgumentException("Rent already occupied");
+            }
+            string landlordEmail = dbContext.Landlords.Where(landlord => landlord.LandlordId == rentToBeOccupied.LandlordId).FirstOrDefault().Email;
+            EmailSender.SendEmail(landlordEmail, username, rentToBeOccupied.Address, userPhoneNumber);
+            rentToBeOccupied.IsAvailable = false;
+            dbContext.SaveChanges();
         }
 
         public List<City> GetCities()
