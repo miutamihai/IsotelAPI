@@ -80,7 +80,9 @@ namespace IsotelDataLayer
                 throw new ArgumentException("Rent already occupied");
             }
             string landlordEmail = dbContext.Landlords.Where(landlord => landlord.LandlordId == rentToBeOccupied.LandlordId).FirstOrDefault().Email;
+            string localPolicePhoneNumber = dbContext.Cities.Where(city => city.CityId == rentToBeOccupied.CityId).FirstOrDefault().PhoneNumber;
             EmailSender.SendEmail(landlordEmail, username, rentToBeOccupied.Address, userPhoneNumber);
+            SMSSender.SendSMS(localPolicePhoneNumber, username, userPhoneNumber, rentToBeOccupied.Address);
             rentToBeOccupied.IsAvailable = false;
             dbContext.SaveChanges();
         }

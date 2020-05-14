@@ -18,7 +18,7 @@ namespace IsotelDataLayer.Helpers
             smtp.Credentials = new NetworkCredential("isotelservice@gmail.com",
                "onbrbfdiugqllivv");
             smtp.Send("isotelservice@gmail.com", destinationEmail,
-               "Isotel - Rent Occupied", "Hi there, this is Isotel! The user " + username + ", " + userPhoneNumber + " has just rented your property of " + rentAddress);
+               "Isotel - Rent Occupied", "Hi there, this is Isotel! The user " + username + ", having the phone number " + userPhoneNumber + " has just rented your property of " + rentAddress);
         }
     }
 }   
