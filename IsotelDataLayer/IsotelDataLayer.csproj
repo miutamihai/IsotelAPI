@@ -50,9 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBManager.cs" />
-    <Compile Include="Migrations\202005071504150_InitialMigration.cs" />
-    <Compile Include="Migrations\202005071504150_InitialMigration.Designer.cs">
-      <DependentUpon>202005071504150_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202005141014230_InitialMigration.cs" />
+    <Compile Include="Migrations\202005141014230_InitialMigration.Designer.cs">
+      <DependentUpon>202005141014230_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\City.cs" />
@@ -67,8 +67,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005071504150_InitialMigration.resx">
-      <DependentUpon>202005071504150_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005141014230_InitialMigration.resx">
+      <DependentUpon>202005141014230_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

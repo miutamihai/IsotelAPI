@@ -11,7 +11,7 @@ namespace IsotelDataLayer.Models
     {
         public IsotelDbContext() : base("IsotelDatabase")
         {
-            Database.SetInitializer<IsotelDbContext>(new DatabaseInitializer());
+            Database.SetInitializer(new DatabaseInitializer());
         }
         public DbSet<City> Cities { get; set; }
         public DbSet<Landlord> Landlords { get; set; }

@@ -11,6 +11,7 @@ namespace IsotelDataLayer.Models
     public class Rent
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RentId { get; set; }
         public string Address { get; set; }
         public int CityId { get; set; }
