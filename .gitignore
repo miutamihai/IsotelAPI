@@ -10,3 +10,4 @@ IsotelBusinessLayer/obj/
 IsotelDataLayer/obj/
 IsotelDataLayer/bin/
 packages
+IsotelDataLayer/Migrations
