@@ -1,6 +1,6 @@
-﻿using IsotelDataLayer;
-using IsotelDataLayer.Models;
+﻿using IsotelDataLayer.Models;
 using IsotelBusinessLayer.Helpers;
+using IsotelRepository.WorkingRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,9 @@ namespace IsotelBusinessLayer
 {
     public class QueryResolver
     {
-        static DBManager manager = new DBManager();
+        static WorkingCityRepository cityRepository = new WorkingCityRepository();
+        static WorkingLandlordRepository landlordRepository = new WorkingLandlordRepository();
+        static WorkingRentRepository rentRepository = new WorkingRentRepository();
         private static void ConvertPriceRates(ref List<Rent> rents, string currency)
         {
             foreach (Rent rent in rents)
@@ -27,70 +29,70 @@ namespace IsotelBusinessLayer
         }
         public static List<Rent> GetRentsForCity(int cityId, string currency)
         {
-            var rents =  manager.GetRentsForCity(cityId);
+            var rents =  rentRepository.GetRentsForCity(cityId);
             ConvertPriceRates(ref rents, currency);
             return rents;
         }
 
         public static List<Rent> GetRentsForLandlord(int landlordId, string currency)
         {
-            var rents =  manager.GetRentsForLandlord(landlordId);
+            var rents =  rentRepository.GetRentsForLandlord(landlordId);
             ConvertPriceRates(ref rents, currency);
             return rents;
         }
 
         public static List<Rent> GetAvailableRents(string currency)
         {
-            var rents =  manager.GetAvailableRents();
+            var rents =  rentRepository.GetAvailableRents();
             ConvertPriceRates(ref rents, currency);
             return rents;
         }
 
         internal static Rent AddRent(Rent rent)
         {
-            return manager.AddRent(rent);
+            return rentRepository.AddRent(rent);
         }
 
         public static Rent GetRent(int rentId, string currency)
         {
-            var rent = manager.GetRent(rentId);
+            var rent = rentRepository.GetRent(rentId);
             rent.PricePerDay = CalculateNewPrice(rent.PricePerDay, currency);
             return rent;
         }
 
         public static Landlord GetLandlord(int landlordId)
         {
-            return manager.GetLandlord(landlordId);
+            return landlordRepository.GetLandlord(landlordId);
         }
 
         internal static Landlord AddLandlord(Landlord landlord)
         {
-            return manager.AddLandlord(landlord);
+            return landlordRepository.AddLandlord(landlord);
         }
 
         public static City GetCity(int cityId)
         {
-            return manager.GetCity(cityId);
+            return cityRepository.GetCity(cityId);
         }
         public static List<City> GetCities()
         {
-            return manager.GetCities();
+            return cityRepository.GetCities();
         }
         internal static void DeleteRent(int rentId)
         {
-            manager.DeleteRent(rentId);
+            rentRepository.DeleteRent(rentId);
         }
         internal static void DeleteLandlord(int landlordId)
         {
-            manager.DeleteLandlord(landlordId);
+            landlordRepository.DeleteLandlord(landlordId);
         }
         internal static void FreeRent(int rentId)
         {
-            manager.FreeRent(rentId);
+            rentRepository.FreeRent(rentId);
         }
         internal static void OccupyRent(int rentId, string username, string userPhoneNumber)
         {
-            manager.OccupyRent(rentId, username, userPhoneNumber);
+            rentRepository.OccupyRent(rentId, username, userPhoneNumber);
         }
     }
 }

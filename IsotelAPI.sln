@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsotelBusinessLayer", "Isot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsotelDataLayer", "IsotelDataLayer\IsotelDataLayer.csproj", "{8D24B0D1-DE9E-4582-86D6-5153DF75DC03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsotelRepository", "IsotelRepository\IsotelRepository.csproj", "{AE3A0127-ABD4-449E-8F02-111411FF3873}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8D24B0D1-DE9E-4582-86D6-5153DF75DC03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D24B0D1-DE9E-4582-86D6-5153DF75DC03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D24B0D1-DE9E-4582-86D6-5153DF75DC03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3A0127-ABD4-449E-8F02-111411FF3873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3A0127-ABD4-449E-8F02-111411FF3873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3A0127-ABD4-449E-8F02-111411FF3873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3A0127-ABD4-449E-8F02-111411FF3873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

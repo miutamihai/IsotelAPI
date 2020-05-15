@@ -88,8 +88,11 @@
       <Project>{8d24b0d1-de9e-4582-86d6-5153df75dc03}</Project>
       <Name>IsotelDataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IsotelRepository\IsotelRepository.csproj">
+      <Project>{ae3a0127-abd4-449e-8f02-111411ff3873}</Project>
+      <Name>IsotelRepository</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

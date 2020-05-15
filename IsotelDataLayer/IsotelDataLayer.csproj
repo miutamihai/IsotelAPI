@@ -60,14 +60,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twilio, Version=5.41.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Twilio.5.41.0\lib\net451\Twilio.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBManager.cs" />
-    <Compile Include="Helpers\EmailSender.cs" />
-    <Compile Include="Helpers\SMSSender.cs" />
     <Compile Include="Migrations\202005141014230_InitialMigration.cs" />
     <Compile Include="Migrations\202005141014230_InitialMigration.Designer.cs">
       <DependentUpon>202005141014230_InitialMigration.cs</DependentUpon>
