@@ -1195,9 +1195,10 @@ codemirror-graphql@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-0.6.3.tgz#01f8841dab54c69e9f182caed39bd376c5ba3cb4"
 
-codemirror@5.23.0:
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.23.0.tgz#ac9b6b2e163a79e915b44cf0f43cd115cf6982dc"
+codemirror@5.58.2:
+  version "5.58.2"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.2.tgz#ed54a1796de1498688bea1cdd4e9eeb187565d1b"
+  integrity sha512-K/hOh24cCwRutd1Mk3uLtjWzNISOkm4fvXiMO7LucCrqbh6aJDdtqUziim3MZUI6wOY0rvY1SlL1Ork01uMy6w==
 
 combine-source-map@~0.7.1:
   version "0.7.2"
